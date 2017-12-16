@@ -1,0 +1,150 @@
+body{
+	background-color:#77C9D4
+}
+header{
+	height: 8rem;line-height: 8rem;background-color: #FFFFFF;position: relative;
+}
+.header-left{
+	width: 100%;
+}
+
+.container{
+	width: 70%;margin-left: 15%;
+}
+header .logo{
+	background: url(../img/logo.png) no-repeat center/contain;
+}
+header .container div{
+	height: 8rem;
+}
+.about{
+	text-align: right;cursor: pointer;color:#044F9F
+}
+.about a{
+	text-decoration: underline;font-weight: bold;color:#044F9F
+}
+.container-left{
+	width: 30%;background-color:#F8F9FB;color: #000000;float: left;
+}
+.container-left-main-container:hover{
+	color: #607286;
+}
+.container-right{
+	width:65%;float: right;padding-bottom: 1rem;
+}
+.container-left-main{
+	width: 80%;margin-left: 10%;
+}
+.container-left-main-container{
+	border-bottom: 1px solid gainsboro;
+	
+	transition:background-color 0.5s;
+	-webkit-transition:background-color 0.5s;
+	-moz-transition:background-color 0.5s;
+}
+
+.container-left-main-title{
+	height: 5rem;line-height: 5rem;font-size: 2rem;background-image:url(../img/toRight.png) ;
+	background-repeat: no-repeat;background-position: right;background-size: 1.2rem;
+}
+.container-left-main-bar{
+	margin-bottom: 3rem;
+}
+.container-left-main-bars{
+	float: left;height: 3.5rem;line-height: 3.5rem;text-align: left;font-size:1.5rem;padding-right:2rem;cursor: pointer;
+}
+.orange{
+	color: #FE7948;
+	transition:background-color 0.5s;
+	-webkit-transition:background-color 0.5s;
+	-moz-transition:background-color 0.5s;
+}
+.container-right-part{
+	border-bottom: 1px solid #F2F2F5;background-color: #FFFFFF;
+}
+.container-right-part:hover{
+	background-color: #F8F9FB;cursor: pointer;
+}
+.container-right-parts{
+	width: 94%;margin-left: 3%;
+	padding-bottom: 2rem;
+}
+.container-right-parts-left{
+	width: 50%;float: left;text-align: left;
+}
+.container-right-parts-right{
+	width: 50%;float: left;text-align: right;
+}
+.container-right-parts-left-title{
+	height: 5rem;line-height: 5rem;font-size: 2.5rem;
+}
+.container-right-parts-left-price{
+	font-size: 1.8rem;color: #FC7044;height: 3rem;line-height: 3rem;font-weight: bold;
+}
+.split{
+	margin: 0 1rem;
+}
+.container-right-parts-left-idonotknow{
+	height: 2rem;line-height: 2rem;font-size: 1.3rem;
+}
+.container-right-parts-right-dep{
+	height: 3rem;line-height: 3rem;font-size: 1.8rem;margin-top: 1rem;
+}
+.container-right-parts-right-time{
+	height: 2rem;line-height: 2rem;
+}
+.main{
+	margin-top: 3rem;color: #414A60;
+}
+.container-left-main-container:hover{
+	background-color: #FFFFFF
+}
+.about a{
+	font-size: 1.5rem;
+}
+.container-left-main-bars:hover{
+	color: #5DD5C8;
+}
+
+
+.container-right-parts-right-top{
+	height: 3rem;padding-top: 1rem;
+}
+.container-right-parts-right-top img{
+	height: 2rem;vertical-align: middle;
+}
+.container-right-parts-right-top a{
+	vertical-align: middle;margin-left: 1rem;color: #FC7044;font-size: 1.8rem;
+}
+footer{
+	text-align: center;color: #FFFFFF;margin-top: 3rem;width: 100%;
+}
+.footer-nav{
+	width: 30%;margin-left: 35%;padding: 1rem 0;
+}
+.footer-nav a{
+	color: #044F9F;font-weight: bold;
+}
+.footer-nav a:hover{
+	color:#FC7044
+}
+.footer-nav-left,.footer-nav-right{
+	float: left;width: 50%;font-size: 2rem;
+}
+.copyright{
+	font-size:1.5rem;padding: 1rem 0;
+}
+.footer-nav img{
+	vertical-align: middle;height:1.5rem;margin-right: 1rem;
+}
+.footer-zanwei{
+	height: 10rem;margin-top: 3rem;width: 100%;
+}
+.all{
+	display: none;
+}
+
+
+.return{
+	position: absolute;height: 2rem;top: 3rem;left: 0;cursor: pointer;
+}

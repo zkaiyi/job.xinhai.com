@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>新海集团招聘</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/application.css" />
+		<link rel="shortcut icon" type="image/x-icon" href="img/recuirt.ico" media="screen" />
+		<link rel="stylesheet" href="css/media.css" />
+		
+		<style>
+			@media screen and (max-width: 600px){
+				footer{
+					margin-top: 13rem;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container" style="position: relative;">
+				<div class="header-left logo"></div>
+				<img onclick="history.go(-1)" class="return" src="img/return.png" />
+			</div>
+			
+		</header>
+		<div class="input-container">
+			<!--<form id="formInput" method="post" enctype="multipart/form-data">-->
+				<div class="form-group">
+					<input class="input-group input-group1 name" type="text" placeholder="请输入姓名" />
+					<p class="tips">姓名不能为空</p>
+				</div>
+				<div class="form-group">
+					<input class="input-group input-group1 email" type="text" placeholder="请输入邮箱" />
+					<p class="tips">请检查邮箱格式</p>
+				</div>
+				<div class="form-group">
+					<input class="input-group input-group1 mobile" type="text" placeholder="请输入手机号" />
+					<p class="tips">请检查手机号码格式</p>
+				</div>
+				<div class="split2">非必填项</div>
+				<p class="tips"></p>
+				<div class="form-group form-group2">
+					<input class="input-group idcard" type="text" placeholder="请输入身份证" />
+					<p class="tips"></p>
+				</div>
+				<div class="form-group form-group2">
+					<input class="input-group development_direction" type="text" placeholder="请输入发展方向" />
+					<p class="tips"></p>
+				</div>
+				<div class="form-group form-group2">
+					<input class="input-group school" type="text" placeholder="请输入学校" />
+					<p class="tips"></p>
+				</div>
+				<div class="form-group form-group2">
+					<input class="input-group native_place" type="text" placeholder="请输入籍贯" />
+					<p class="tips"></p>
+				</div>
+				<button id="submit" class="submit">提交</button>
+			<!--</form>-->
+		</div>
+		<div class="footer-zanwei"></div>
+		<footer >
+			
+			<p class="copyright">新海科技集团有限公司（商务智能部）版权所有   (Powered By 商务智能部)  | 浙ICP备17042588号-1</p>
+		</footer>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="js/base.js" ></script>
+		<script>
+	
+			$(function(){
+				$(".split2").click(function(){
+					if($(this).hasClass("opening")){
+						$(this).removeClass("opening")
+						$(this).css("background-image","url(img/down-arrow.png)")
+						$(".form-group2").fadeOut(500)
+					}else{
+						$(this).addClass("opening")
+						$(this).css("background-image","url(img/down-up.png)")
+						$(".form-group2").fadeIn(500)
+					}
+				})
+				$("#submit").click(function(){
+					var name = $(".name").val();
+					var email = $(".email").val();
+					var mobile = $(".mobile").val();
+					var idcard = $(".idcard").val();
+					var development_direction = $(".development_direction").val();
+					var school = $(".school").val();
+					var native_place = $(".native_place").val();
+					
+					var user_ids;
+					var message_id = sessionStorage.getItem("message_id");
+					var emailReg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+					var dataArray={};
+					dataArray.operation = "add_job_user";
+					dataArray.message_id = message_id;
+					
+					if(name==""){
+						$(".name").next().css("visibility","visible");
+						return false
+					}else{
+						$(".name").next().css("visibility","hidden");
+						dataArray.name = name;		
+					}
+					
+					if(emailReg.test(email) && email!==""){
+						$(".email").next().css("visibility","hidden");
+						dataArray.email = email
+						console.log("bbbb")
+					}else{
+						$(".email").next().css("visibility","visible");
+						return false
+					}
+					
+					if((/^1[34578]\d{9}$/.test(mobile)) && mobile!==""){
+						$(".mobile").next().css("visibility","hidden");
+						console.log("aaaa")
+						dataArray.mobile = mobile;
+					}else{
+						$(".mobile").next().css("visibility","visible");
+						return false
+					}
+					
+					if(idcard!==""){
+						dataArray.idcard=idcard;
+					}
+					if(development_direction!==""){
+						dataArray.development_direction=development_direction;
+					}
+					if(school!==""){
+						dataArray.school=school;
+					}
+					if(native_place!==""){
+						dataArray.native_place=native_place;
+					}
+					var jobtype=sessionStorage.getItem("jobtype");
+					$.ajax({
+						type:"post",
+						url:"http://job.xinhaimobile.cn/xinhai_job/email_send.php",
+						datatype:"json",
+			           	data:{
+			           		"operation":"email_send",
+			           		"email":email,
+			           		"jobtype":jobtype,
+			           		"jobplatform":"pc"
+			           	},
+			           	success:function(data){
+
+			           	},
+			           	error:function(){}
+					});
+					$.ajax({
+						type:"post",
+						url:url_path,
+						data:{
+							"operation":"user_addnew",
+							"username":mobile,
+							"password":"000000"
+						},
+						dataType:"json",
+						success:function(data){
+							user_ids = data.return;
+							dataArray.user_ids = user_ids;
+
+							$.ajax({
+								type:"post",
+								url:url_path,
+								data:dataArray,
+								dataType:"json",
+								success:function(data){
+									if(data.return=="ok"){
+										window.location.href = "success.html"
+									}
+								},
+								error:function(){}
+							})
+						},
+						error:function(){}
+					});
+					
+					//$("#formInput").submit();
+				})
+				$(".input-group1").change(function(){
+					var value = $(this).val();
+					
+					if($(this).hasClass("name")){
+						if(value==""){
+							$(this).next().css("visibility","visible")
+						}else{
+							$(this).next().css("visibility","hidden")
+						}
+					}else if($(this).hasClass("email")){
+						if(value.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+							$(this).next().css("visibility","hidden")
+						}else{
+							$(this).next().css("visibility","visible")
+						}
+					}else if($(this).hasClass("mobile")){
+						if(value.match(/^(((1[0-9][0-9]{1})|159|153)+\d{8})$/)){
+							$(this).next().css("visibility","hidden")
+						}else{
+							$(this).next().css("visibility","visible")
+						}
+					}
+				})
+			})
+
+		</script>
+	</body>
+</html>

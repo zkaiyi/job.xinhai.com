@@ -1,0 +1,131 @@
+body{
+	background-color: #5BCEE0
+}
+header{
+	height: 10rem;
+}
+.logo-container{
+	background-color: #FFFFFF;display: inline-block;border-radius: 10px;display: inline-block;margin-left: 5rem;
+}
+.logo-img{
+	height: 5rem;
+}
+.title{
+	text-align: center;color: #5BCEE0;height: 5rem;font-size: 3rem;line-height: 5rem;font-weight: 550;
+}
+.title2{
+	height: 5rem;display: inline-block;font-size: 2rem;line-height:2.5rem;vertical-align: top;margin-left: 2rem;
+	letter-spacing: 3px;
+}
+.title2 p{
+	color: #FFFFFF;
+}
+a{
+	text-decoration: none;
+}
+.main_bar{
+	width:100%;
+	height: 45rem;
+	margin-top:10rem;
+}
+.login_form{
+	width:35%;
+	height:80%;
+	margin:0 auto;
+	/*border:2px solid #16A085;*/
+	border-radius: 15px;
+	padding:10px;
+	background: #FFFFFF;
+}
+.name,.pwd,.sbm_btn{
+	display:block;
+	width:70%;
+	margin:0 auto;
+	height:35px;
+	font-size:16px;
+
+	border: 1px solid gainsboro;
+	padding-left:8px;
+
+	
+}
+.yzm{
+	height: 35px;
+	margin:0 auto;
+	width: 72%;
+	line-height: 35px;
+	position: relative;
+	margin-bottom: 10px;
+}
+.code{
+	width:50%;
+	height: 35px;
+	border:0;
+	background-color: #FFFFFF;
+	font-size:16px;
+
+	padding-left: 8px;
+	border: 1px solid gainsboro;
+}
+.code_pic{
+	display: block;
+	width:40%;
+	height:35px;
+	background-color:gray;
+	color:#FFF;
+	position: absolute;
+	top: 0px;
+	left:60%;
+	text-align: center;cursor: pointer;
+}
+.name{
+	margin-top:20px;
+}
+.pwd{
+	
+}
+.sbm_btn{
+	text-align: center;
+	background-color: #5BCEE0;
+	color:#fff;
+	line-height: 35px;cursor: pointer;
+}
+.re_pwd {
+    width: 100%;
+    margin:3rem auto;text-align: center;
+}
+.re_pwd a{
+	text-decoration: none;
+	font-size:14px;
+	color: #ccc;
+}
+.re_pwd a:hover{
+	cursor: pointer;
+	color:#5BCEE0;
+}
+.errorTips{
+	width:70%;
+	color:red;
+	font-size: 1rem;
+	margin:0 auto;
+	height: 3rem;
+	line-height:3rem;
+}
+.re_pwd .split{
+	margin: 0 1rem;color: gray;
+}
+.reg{
+	display: none;
+}
+.pwd2{
+	display: none;
+}
+.tips{
+	width: 70%;margin: 0 auto;height: 3rem;line-height: 3rem;font-size: 1rem;color: red;visibility: hidden;
+}
+.tips2{
+	display: none;
+}
+#login_form{
+	padding-bottom: 3rem;
+}

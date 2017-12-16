@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>新海集团招聘</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="shortcut icon" type="image/x-icon" href="img/recuirt.ico" media="screen" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/media.css" />
+		<style>
+			@media screen  and (max-width: 640px) {
+				.container-right-part{
+					margin-bottom: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="header-left logo"></div>
+
+			</div>
+			<div class="all"></div>
+		</header>
+		<div class="container main" style="padding-bottom: 5rem;">
+			<div class="container-left">
+				<div class="container-left-main-container container-left-main-container1">
+					<div class="container-left-main">
+						<p class="container-left-main-title">所有城市</p>
+						<div class="container-left-main-bar query_city">
+							<div class="container-left-main-bars">慈溪</div>
+							<div class="container-left-main-bars">南京</div>
+							<div class="container-left-main-bars">上海</div>
+							<div class="container-left-main-bars">深圳</div>
+							<div class="container-left-main-bars">杭州</div>
+							<div class="container-left-main-bars">远程</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+				<div class="container-left-main-container container-left-main-container2">
+					<div class="container-left-main">
+						<p class="container-left-main-title allDepartment">所有部门</p>
+						<div class="container-left-main-bar query_department">
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+				<div style="display: none;" class="container-left-main-container container-left-main-container3">
+					<div class="container-left-main">
+						<p class="container-left-main-title allPosition">所有岗位</p>
+						<div class="container-left-main-bar query_position">
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+				<div class="container-left-main-container">
+					<div class="container-left-main">
+						<p class="container-left-main-title">工作经验</p>
+						<div class="container-left-main-bar query_experience">
+							<div class="container-left-main-bars" data-wordage="0年">工作经验不限</div>
+							<div class="container-left-main-bars" data-wordage="1-3年">1-3年</div>
+							<div class="container-left-main-bars" data-wordage="3-5年">3-5年</div>
+							<div class="container-left-main-bars" data-wordage="5-7年">5-7年</div>
+							<div class="container-left-main-bars" data-wordage="7-10年">7-10年</div>
+							<div class="container-left-main-bars" data-wordage="10年">10年以上</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+				<div class="container-left-main-container">
+					<div class="container-left-main">
+						<p class="container-left-main-title">招聘类型</p>
+						<div class="container-left-main-bar query_type">
+							<div class="container-left-main-bars">校招</div>
+							<div class="container-left-main-bars">社招</div>
+	
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+				<div class="container-left-main-container">
+					<div class="container-left-main">
+						
+						<div class="container-left-main-bar query_type" style="margin-bottom: 0;">
+							<div class="container-left-main-bars2" id="destory" style="height: 3rem;line-height: 3rem;font-size: 1.5rem;padding: 1rem 0;cursor: pointer;">重置选项</div>
+						
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-right">
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+		<div class="footer-zanwei" style="display: none;"></div>
+		<footer>	
+			<p class="copyright">新海科技集团有限公司（商务智能部）版权所有   (Powered By 商务智能部)  | 浙ICP备17042588号-1</p>
+		</footer>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="js/base.js" ></script>
+		<script type="text/javascript" src="js/index.js" ></script>
+		<script type="text/javascript" src="js/onload.js" ></script>
+		<script type="text/javascript" src="js/NB.js" ></script>
+		<script>
+			$(function(){
+				query_all_value();
+				query_department();
+				query_position();
+
+				$(document).on("mouseenter",".container-left-main-container",function(){
+					$(this).find(".container-left-main-title").css({"color":"#5BCEE0","background-image":"url(img/toRightActive.png)"})
+	
+				})
+				$(document).on("mouseleave",".container-left-main-container",function(){
+					$(this).find(".container-left-main-title").css({"color":"#000000","background-image":"url(img/toRight.png)"})
+
+				})
+				$(document).on("click",".container-left-main-bars",function(){
+					if($(this).hasClass("orange")){
+						$(this).removeClass("orange");
+						nb();
+					}else{
+						$(this).siblings(".container-left-main-bars").removeClass("orange")
+						$(this).addClass("orange");
+						nb();
+					}
+					
+				})
+				$(document).on("click",".container-right-part",function(){
+					var message_id = $(this).find(".message_id").text();
+					sessionStorage.setItem("message_id",message_id);
+					if(message_id!=="" && message_id!=="undefined"){
+						window.location.href="job.html?message_id="+message_id+"";
+					}
+					
+				})
+				$("#destory").click(function(){
+					$(".container-left-main-bars").removeClass("orange");
+					nb();
+			
+				})
+				$(".all").click(function(){
+					if($(this).hasClass("opened")){
+						$(".container-left").fadeOut(500);
+						$(this).removeClass("opened")
+					}else{
+						$(".container-left").fadeIn(500);
+						$(this).addClass("opened")
+					}
+					
+				})
+			})
+		</script>
+	</body>
+</html>

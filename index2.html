@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>新海集团招聘</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<link rel="shortcut icon" type="image/x-icon" href="img/recuirt.ico" media="screen" />
+	</head>
+	<body onload="changeImg()">
+		<header>
+			<div style="height: 5rem;"></div>
+			<div class="logo-container">
+				<img class="logo-img" src="img/logo.png" />
+			</div>
+			<div class="title2">
+				<p>新海</p>
+				<p>成就你的未来</p>
+			</div>
+		</header>
+		<div class="main_bar">
+			<div id="login_form" class="login_form">
+				<div class="title">新海招聘</div>
+				<form action="login.html">
+					<div id="form_widgt">
+						<input onchange="userChange(this)" type="text" name="name" class="name" placeholder="请输入6位以上数字字母组合">
+						<p class="tips">请输入6位以上数字字母组合</p>
+						<input onchange="userChange(this)" type="password" name="pwd" class="pwd pwd1"  placeholder="请输入密码(至少6位)">
+						<p class="tips">请输入6位以上密码</p>
+						<input onchange="userChange(this)" type="password" name="pwd" class="pwd pwd2"  placeholder="请再次输入密码(至少6位)">
+						<p class="tips tips2">请输入6位以上密码</p>
+						<p class="yzm">
+							<input onchange="return check()" type="text" name="code" id="codeInput" class="code" placeholder="验证码">
+							<span id="code" class="code_pic" title="看不清，换一张"></span>
+						</p>
+						<p class="errorTips" id="errorTips"></p>
+						<a name="sbm" class="sbm_btn submit" onclick="return check()">登录</a>
+						<a name="sbm" class="sbm_btn reg" onclick="return check()">注册</a>
+					</div>
+				</form>
+				<div class="re_pwd">
+					<a class="res" onclick="tab(this)">忘记密码了</a>
+					<a class="split">|</a>
+					<a class="res res_reg" onclick="tab(this)">立即注册</a>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="js/index.js" ></script>
+		<script type="text/javascript" src="js/base.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				// 声明一个变量用于存储生成的验证码
+				//document.getElementById('code').onclick = changeImg;
+				$("#code").click(function(){
+					changeImg();
+				})
+				
+				$(".submit").click(function(){
+					var Flag = submit_test();		
+					if(Flag){
+						var password = $(".pwd1").val();
+						var username = $(".name").val();			
+						$.ajax({
+							type:"post",
+							url:url_path,
+							data:{
+								"operation":"user_login",
+								"username":username,
+								"password":password
+							},
+							dataType:"json",
+							success:function(data){
+								console.log(data)
+								var user_ids = data.id
+								if(data.return==username){
+									sessionStorage.setItem("username",username);
+									sessionStorage.setItem("user_ids",user_ids);
+									window.location.href="main.html"
+								}else if(data.error=="不存在或帐号密码错误"){
+									$(".errorTips").html("不存在或帐号密码错误")
+								}
+							},
+							error:function(err){
+								console.log(err)
+							}
+						});
+						
+					}
+				})
+				
+				$(".reg").click(function(){					
+					var Flag = reg_test();
+					if(Flag){
+						var username = $(".name").val();
+						var password = $(".pwd1").val();
+						$.ajax({
+							type:"post",
+							url:url_path,
+							data:{
+								"operation":"user_addnew",
+								"username":username,
+								"password":password
+							},
+							dataType:"json",
+							success:function(data){
+								console.log(data.error)
+								if(data.return=="yes"){
+									$(".errorTips").html("亲耐的童鞋，恭喜你注册成功，快快去登录吧~");
+									setTimeout(function(){
+										$(".submit").css("display","block");
+										$(".reg").css("display","none");
+										$(".res_reg").html("立即注册");
+										$(".pwd2").css("display","none");
+										$(".main_bar").css("height","45rem");
+										$(".tips2").css("display","none");
+										
+										changeImg();
+									})
+								}else{
+									$(".errorTips").html(data.error)
+								}
+								changeImg();
+							},
+							error:function(err){
+								console.log(err)
+							}
+						});
+					}
+
+				})
+			})
+			
+		</script>
+	</body>
+</html>

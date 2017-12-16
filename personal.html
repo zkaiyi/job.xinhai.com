@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>新海集团招聘</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/personal.css" />
+		<link rel="shortcut icon" type="image/x-icon" href="img/recuirt.ico" media="screen" />
+		<link rel="stylesheet" href="css/media.css" />
+	</head>
+	<body>
+		<header style="margin-bottom: 3rem;">
+			<div class="container">
+				<div class="header-left logo"></div>
+			</div>
+			
+		</header>
+		<div class="container">
+			<div class="personal-left">
+
+				<div class="left-head">
+					
+				</div>
+				<p class="left-name">金大圣</p>
+				<div class="left-head-nav">
+					<div class="left-head-navs myapplication left-head-navs-active">我申请的招聘</div>
+					<div class="left-head-navs myoffer">我的offer</div>
+					<div class="left-head-navs connect-xinhai left-head-navs2">联系新海</div>
+				</div>
+			</div>
+			<div class="personal-right container-right">
+				<img src="img/aboutImg-1.jpg" />
+			</div>
+			<div class="clear"></div>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="js/base.js" ></script>
+		<script type="text/javascript" src="js/index.js" ></script>
+		<script type="text/javascript" src="js/onload.js" ></script>
+		<script>
+			$(function(){
+				var username = sessionStorage.getItem("username");
+				$(".left-name").html(username);
+				
+				$(".left-head-navs").click(function(){
+					$(".left-head-navs").removeClass("left-head-navs-active");
+					$(this).addClass("left-head-navs-active")
+				})
+				
+				myApplication();
+				$(".myapplication").click(function(){
+					myApplication();
+				})
+				$(".myoffer").click(function(){
+					myOffer();
+				})
+				$(".connect-xinhai").click(function(){
+					connectXH();
+					
+				})
+			})
+		</script>
+	</body>
+</html>

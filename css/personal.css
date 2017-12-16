@@ -1,0 +1,40 @@
+body{
+	background-color: #FDF8F3
+}
+.personal-left{
+	background-color: #FAFAFA;width: 30%;float: left;
+}
+.personal-right{
+	width: 65%;float: right;
+}
+.left-head{
+	height: 10rem;background-color: #FFFFFF;background-image: url(../img/logo.png);background-repeat: no-repeat;
+	background-position: center;background-size: contain;
+}
+.left-head-navs{
+	border-left: 3px solid #FAFAFA;padding: 1.5rem 0;padding-left: 5%;font-size: 1.5rem;margin-bottom: 2rem;
+	cursor: pointer;
+}
+.left-head-navs-active{
+	border-left: 3px solid #5BCEE0;background-color: #EFFBF9
+}
+.left-name{
+	text-align: center;font-size: 2rem;height:4rem ;line-height: 4rem;background-color: #FFFFFF;padding-bottom: 1rem;
+}
+
+
+.connect-xinhai-container{
+	background-color: #FFFFFF
+}
+.connect-xinhai-container div{
+	height: 4rem;line-height: 4rem;vertical-align: middle;
+}
+.connect-xinhai-container img{
+	height: 2rem;margin-right: 2rem;margin-left: 1rem;display: inline-block;vertical-align: middle;
+}
+.connect-xinhai-container a{
+	display: inline-block;
+}
+.connect-xinhai-container .about{
+	width: 100%;margin-left:0;height: 100%;margin-bottom: 3rem;
+}

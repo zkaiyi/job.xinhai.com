@@ -1,0 +1,58 @@
+body{
+	background-color: #FFFFFF
+}
+.job-main{
+	background-color: #5BCEE0;color: #FFFFFF;
+}
+.container-right-part{
+	background-color: #5BCEE0;border-bottom: none;padding: 3rem 0;
+}
+.container-right-part:hover{
+	background-color: #5BCEE0;
+}
+.container-right-parts-right-dep{
+	margin-top: 1rem;font-size: 2rem;
+}
+.job-price{
+	padding: 0.2rem 1rem;font-size:1.5rem;background-color: #FA6A43;color: #FFFFFF;margin-left: 1rem;border-radius: 15px;
+}
+.container-right-parts-right-time{
+	height: 4rem;line-height: 4rem;
+}
+.container-right-parts{
+	padding-bottom: 0;width: 100%;margin-left: 0;
+}
+.job-detail-desc{
+	height: 5rem;line-height: 5rem;font-size: 2rem;margin-top: 2rem;
+}
+.dep-desc{
+	background-color: #EFFBF9;color: #8D949F;padding-bottom: 3rem;
+}
+.dep-desc-title{
+	padding: 1rem 0;font-size: 1.5rem;letter-spacing: 1.5px;line-height: 2rem;padding-bottom: 2rem;
+}
+.department{
+	height: 3rem;line-height: 3rem;font-size: 2rem;padding-top: 2rem;
+}
+.job-detail{
+	color: #8D949F;padding-bottom: 10rem;
+}
+.job-detail-desc2-txt{
+	padding: 1rem 0;font-size: 1.5rem;line-height: 3rem;
+}
+.job-detail-left{
+	width:60%;float: left;
+}
+.job-detail-right{
+	width:35%;float: right;
+}
+.job-detail-right-input{
+	padding: 1.5rem 0;width: 95%;padding-left: 5%;margin-top: 5rem;
+}
+.job-detail-right-btn{
+	padding: 1rem 0;width: 100%;margin-top: 3rem;border: none;background-color: #5BCEE0;color: #FFFFFF;border-radius: 10px;
+	cursor: pointer;
+}
+.email-tip{
+	color: red;visibility: hidden;
+}

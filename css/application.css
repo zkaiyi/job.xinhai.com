@@ -1,0 +1,25 @@
+.form-group{
+	text-align: center;
+}
+.input-group{
+	width:60%;height: 3rem;line-height: 3rem;border: 1px solid #5BCEE0;border-radius: 1rem;margin: 0 auto;font-size: 1.5rem;text-align: center;
+}
+.split2{
+	width: 60%;height: 2rem;line-height: 2rem;margin: 0 auto;text-align: center;background-color: #5BCEE0;margin-top: 3rem;border-radius: 5px;color: #FFFFFF;
+	background-image: url(../img/down-arrow.png);background-repeat: no-repeat;background-position: 95%;background-size:1rem;cursor: pointer;
+}
+.form-group2{
+	display: none;
+}
+.input-container{
+	width:40%;margin-left: 30%;background-color: #FFFFFF;margin-top: 3rem;border-radius: 1rem;
+}
+.submit{
+	width: 60%;height: 3rem;line-height: 3rem;border: none;background-color: #5BCEE0;margin-left: 20%;margin-top: 5rem;color: #FFFFFF;border-radius: 1rem;margin-bottom: 5rem;
+}
+.tips{
+	height: 3rem;line-height: 3rem;color: red;visibility: hidden;
+}
+.name{
+	margin-top: 3rem;
+}
